@@ -27,7 +27,8 @@
 
   <h2>What happens on your devices</h2>
   <ul>
-    <li>Your iPhone and your Mac talk to each other directly over Bluetooth. Nothing goes to the internet.</li>
+    <li>Your iPhone and your Mac talk to each other directly over Bluetooth. Your commands never go to the internet.</li>
+    <li>The Mac app asks GitHub once a day which version is the latest (api.github.com). It sends no data about you; GitHub sees an ordinary request from your IP address, as with any website. Turn it off with “Check Automatically” in the menu.</li>
     <li>The iPhone app reads the motion sensors only in pointer mode, to work out where the phone is pointing. That data goes straight to your Mac and is not stored anywhere.</li>
     <li>When pairing, your iPhone and your Mac create a shared key and keep it in the Keychain on each device. It makes sure your Mac only accepts commands from your iPhone.</li>
     <li>The Mac remembers the name and identifier of iPhones you allowed; the iPhone remembers your Mac’s name. “Forget devices” in the Mac menu and “Disconnect this Mac” on the iPhone delete this.</li>
