@@ -52,25 +52,40 @@
   .btn[aria-disabled="true"] { opacity: 0.6; pointer-events: none; }
   .note { color: var(--muted); font-size: 14px; margin-top: 14px; }
 
+  /* phone mockup: mirrors the iPhone app's remote screen */
   .phone {
-    justify-self: center; width: min(300px, 80vw); aspect-ratio: 9 / 19; border-radius: 44px;
-    background: #000; border: 1px solid var(--border); padding: 18px 14px; display: grid;
-    grid-template-rows: auto auto 1fr auto; gap: 10px; box-shadow: 0 40px 120px rgba(179, 155, 255, 0.12);
+    justify-self: center; width: min(310px, 86vw); aspect-ratio: 9 / 19.5; border-radius: 46px;
+    background: #000; border: 1px solid var(--border); padding: 16px 12px 14px; display: grid;
+    grid-template-rows: auto auto minmax(0, 1fr) auto auto; gap: 8px; box-shadow: 0 40px 120px rgba(179, 155, 255, 0.12);
+    font-size: 10px; color: var(--text);
   }
-  .phone .bar { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; padding: 6px 4px 0; }
+  .phone svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .phone .bar { display: flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 600; padding: 4px 4px 0; }
   .phone .bar i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
-  .seg { display: grid; grid-template-columns: 1fr 1fr; background: var(--surface); border-radius: 10px; padding: 3px; font-size: 12px; text-align: center; }
-  .seg span { padding: 6px; border-radius: 8px; }
+  .phone .bar svg { margin-left: auto; width: 17px; height: 17px; }
+  .seg { display: grid; grid-template-columns: 1fr 1fr; background: var(--surface); border-radius: 9px; padding: 2px; font-size: 11px; text-align: center; }
+  .seg span { padding: 5px; border-radius: 7px; }
   .seg span:first-child { background: #3a3a44; }
-  .pad { position: relative; border-radius: 24px; background: var(--surface); border: 1px solid var(--border); overflow: hidden; }
+  .main { display: grid; grid-template-columns: 1fr 40px; gap: 8px; min-height: 0; }
+  .pad { position: relative; border-radius: 22px; background: var(--surface); border: 1px solid var(--border); overflow: hidden; }
   .pad .dot {
-    position: absolute; left: 50%; top: 45%; width: 22px; height: 22px; margin: -11px; border-radius: 50%;
-    background: var(--accent); box-shadow: 0 0 30px var(--accent);
+    position: absolute; left: 50%; top: 45%; width: 18px; height: 18px; margin: -9px; border-radius: 50%;
+    background: var(--accent); box-shadow: 0 0 26px var(--accent);
     animation: drift 6s var(--ease-out) infinite alternate;
   }
-  @keyframes drift { 0% { transform: translate(-46px, 28px); } 50% { transform: translate(34px, -40px); } 100% { transform: translate(10px, 36px); } }
-  .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .row span { background: var(--surface); border-radius: 12px; font-size: 11px; color: var(--muted); text-align: center; padding: 12px 0; }
+  .pad small { position: absolute; left: 0; right: 0; bottom: 12px; text-align: center; color: var(--muted); font-size: 9px; }
+  @keyframes drift { 0% { transform: translate(-40px, 24px); } 50% { transform: translate(30px, -34px); } 100% { transform: translate(8px, 30px); } }
+  .strip { border-radius: 16px; background: var(--surface); color: var(--muted); display: flex; flex-direction: column; align-items: center; justify-content: space-between; padding: 10px 0; font-size: 8px; }
+  .strip div { display: grid; justify-items: center; gap: 3px; }
+  .keys { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .keys span { background: var(--surface); border-radius: 11px; color: var(--text); display: grid; justify-items: center; gap: 3px; padding: 8px 0 7px; font-size: 9px; }
+  .media { background: var(--surface); border-radius: 13px; padding: 0 7px 7px; }
+  .media header { padding: 8px 3px; gap: 6px; font-size: 10px; font-weight: 600; }
+  .media header svg:last-child { margin-left: auto; color: var(--muted); }
+  .media .keys { gap: 5px; }
+  .media .keys + .keys { margin-top: 5px; }
+  .media .keys span { background: var(--raised); padding: 6px 0 5px; font-size: 8px; }
+  .media .keys.two { grid-template-columns: 1fr 1fr; }
 
   section { padding: 56px 0; border-top: 1px solid var(--border); }
   h2 { font-size: clamp(26px, 3.6vw, 36px); letter-spacing: -0.025em; line-height: 1.15; margin: 0 0 12px; }
@@ -125,10 +140,52 @@
       <p class="note">Бесплатно. macOS 14+, Apple silicon и Intel; iPhone с iOS 17+. Подписано и нотаризовано Apple.</p>
     </div>
     <div class="phone" aria-hidden="true">
-      <div class="bar"><i></i>MacBook Pro</div>
+      <svg style="display:none">
+        <symbol id="i-more" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="7.5" cy="12" r=".6"/><circle cx="12" cy="12" r=".6"/><circle cx="16.5" cy="12" r=".6"/></symbol>
+        <symbol id="i-up" viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></symbol>
+        <symbol id="i-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+        <symbol id="i-updown" viewBox="0 0 24 24"><path d="M12 3v18M8 7l4-4 4 4M8 17l4 4 4-4"/></symbol>
+        <symbol id="i-click" viewBox="0 0 24 24"><path d="M9 9l11 4-5 2-2 5z"/><path d="M5.5 5.5L4 4M9 3V1.5M3 9H1.5"/></symbol>
+        <symbol id="i-scope" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><path d="M12 2v5M12 17v5M2 12h5M17 12h5"/></symbol>
+        <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14M16 5v14"/></symbol>
+        <symbol id="i-note" viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></symbol>
+        <symbol id="i-prev" viewBox="0 0 24 24"><path d="M11 6l-8 6 8 6zM21 6l-8 6 8 6z"/></symbol>
+        <symbol id="i-next" viewBox="0 0 24 24"><path d="M13 6l8 6-8 6zM3 6l8 6-8 6z"/></symbol>
+        <symbol id="i-playpause" viewBox="0 0 24 24"><path d="M3 6l9 6-9 6zM16 6v12M21 6v12"/></symbol>
+        <symbol id="i-mute" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zM17 9l5 6M22 9l-5 6"/></symbol>
+        <symbol id="i-vol1" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zM17 9.5a4 4 0 0 1 0 5"/></symbol>
+        <symbol id="i-vol3" viewBox="0 0 24 24"><path d="M3 9h4l5-4v14l-5-4H3zM15.5 9.5a4 4 0 0 1 0 5M18.5 7a8 8 0 0 1 0 10"/></symbol>
+        <symbol id="i-sun1" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 5v1M12 18v1M5 12h1M18 12h1M7 7l.7.7M16.3 16.3l.7.7M7 17l.7-.7M16.3 7.7l.7-.7"/></symbol>
+        <symbol id="i-sun3" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></symbol>
+      </svg>
+      <div class="bar"><i></i>MacBook Pro<svg><use href="#i-more"/></svg></div>
       <div class="seg"><span>Указка</span><span>Тачпад</span></div>
-      <div class="pad"><div class="dot"></div></div>
-      <div class="row"><span>Правый клик</span><span>Центр</span><span>Пауза</span></div>
+      <div class="main">
+        <div class="pad"><div class="dot"></div><small>Тап — клик. Держите — перетаскивание</small></div>
+        <div class="strip"><svg><use href="#i-up"/></svg><div><svg><use href="#i-updown"/></svg>Скролл</div><svg><use href="#i-down"/></svg></div>
+      </div>
+      <div class="keys">
+        <span><svg><use href="#i-click"/></svg>Правый клик</span>
+        <span><svg><use href="#i-scope"/></svg>Центр</span>
+        <span><svg><use href="#i-pause"/></svg>Пауза</span>
+      </div>
+      <div class="media">
+        <header><svg><use href="#i-note"/></svg>Звук, музыка и яркость<svg><use href="#i-down"/></svg></header>
+        <div class="keys">
+          <span><svg><use href="#i-prev"/></svg>Назад</span>
+          <span><svg><use href="#i-playpause"/></svg>Пауза / пуск</span>
+          <span><svg><use href="#i-next"/></svg>Далее</span>
+        </div>
+        <div class="keys">
+          <span><svg><use href="#i-mute"/></svg>Без звука</span>
+          <span><svg><use href="#i-vol1"/></svg>Тише</span>
+          <span><svg><use href="#i-vol3"/></svg>Громче</span>
+        </div>
+        <div class="keys two">
+          <span><svg><use href="#i-sun1"/></svg>Темнее</span>
+          <span><svg><use href="#i-sun3"/></svg>Ярче</span>
+        </div>
+      </div>
     </div>
   </div>
 
