@@ -1,5 +1,7 @@
 # PointerPad
 
-Site: https://shaadow0king.github.io/pointerpad/
+Your iPhone as a mouse, trackpad and remote for your Mac — straight over Bluetooth.
 
-Downloads of the Mac app are in Releases.
+- Website: https://pointerpad.github.io
+- Download the Mac app: [latest release](https://github.com/pointerpad/pointerpad/releases/latest)
+- Support: nordlight.apps@gmail.com, or open an issue here
