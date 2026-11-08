@@ -1,16 +1,18 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PointerPad — мышь и тачпад для Mac на iPhone</title>
-<meta name="description" content="iPhone управляет Mac напрямую по Bluetooth: указка, тачпад, музыка и громкость. Без Wi-Fi, без сервера, без подписки.">
-<meta property="og:title" content="PointerPad — мышь и тачпад для Mac на iPhone">
-<meta property="og:description" content="Напрямую по Bluetooth. Без Wi-Fi, без сервера, без подписки.">
+<title>PointerPad — your iPhone as a mouse and trackpad for Mac</title>
+<meta name="description" content="Your iPhone controls your Mac straight over Bluetooth: laser-style pointer, trackpad, music and volume. No Wi-Fi, no server, no subscription.">
+<meta property="og:title" content="PointerPad — your iPhone as a mouse and trackpad for Mac">
+<meta property="og:description" content="Straight over Bluetooth. No Wi-Fi, no server, no subscription.">
 <meta property="og:image" content="og.png">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#09090e">
+<link rel="alternate" hreflang="en" href="https://shaadow0king.github.io/pointerpad/">
+<link rel="alternate" hreflang="ru" href="https://shaadow0king.github.io/pointerpad/ru/">
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
@@ -87,6 +89,8 @@
   .media .keys span { background: var(--raised); padding: 6px 0 5px; font-size: 8px; }
   .media .keys.two { grid-template-columns: 1fr 1fr; }
 
+  .lang { margin-left: 20px; padding: 5px 12px; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); text-decoration: none; font-size: 14px; }
+  .lang:hover { color: var(--text); }
   section { padding: 56px 0; border-top: 1px solid var(--border); }
   h2 { font-size: clamp(26px, 3.6vw, 36px); letter-spacing: -0.025em; line-height: 1.15; margin: 0 0 12px; }
   .sub { color: var(--muted); margin: 0 0 32px; max-width: 40em; }
@@ -116,6 +120,7 @@
     .hero { grid-template-columns: 1fr; padding-top: 24px; }
     .grid { grid-template-columns: 1fr; }
     header nav { display: none; }
+    .lang { margin-left: auto; }
     .compare th:nth-child(2), .compare td:nth-child(2) { display: none; }
   }
   @media (prefers-reduced-motion: reduce) { .pad .dot { animation: none; } }
@@ -126,18 +131,19 @@
   <header>
     <img src="icon.png" alt="">
     <b>PointerPad</b>
-    <nav><a href="#how">Как это работает</a><a href="#why">Почему так</a><a href="#faq">Вопросы</a></nav>
+    <nav><a href="#how">How it works</a><a href="#why">Why it’s different</a><a href="#faq">FAQ</a></nav>
+    <a class="lang" href="ru/" lang="ru">Русский</a>
   </header>
 
   <div class="hero">
     <div>
-      <h1>iPhone — мышь, тачпад и&nbsp;пульт <span>для&nbsp;Mac</span></h1>
-      <p class="lead">Наведите телефон на экран — курсор там. Или ведите пальцем, как по трекпаду. Напрямую по Bluetooth: без Wi-Fi, без сервера, без подписки.</p>
+      <h1>Your iPhone is a mouse, trackpad and&nbsp;remote <span>for&nbsp;your&nbsp;Mac</span></h1>
+      <p class="lead">Point the phone at the screen and the cursor is there. Or slide a finger like on a trackpad. Straight over Bluetooth: no Wi-Fi, no server, no subscription.</p>
       <div class="cta">
-        <a class="btn primary" id="mac" href="https://github.com/shaadow0king/pointerpad/releases/latest/download/PointerPad.zip">Скачать для Mac</a>
-        <a class="btn ghost" aria-disabled="true" href="#">App Store — скоро</a>
+        <a class="btn primary" id="mac" href="https://github.com/shaadow0king/pointerpad/releases/latest/download/PointerPad.zip">Download for Mac</a>
+        <a class="btn ghost" aria-disabled="true" href="#">App Store — coming soon</a>
       </div>
-      <p class="note">Бесплатно. macOS 14+, Apple silicon и Intel; iPhone с iOS 17+. Подписано и нотаризовано Apple.</p>
+      <p class="note">Free. macOS 14+, Apple silicon and Intel; iPhone with iOS 17+. Signed and notarized by Apple.</p>
     </div>
     <div class="phone" aria-hidden="true">
       <svg style="display:none">
@@ -159,84 +165,84 @@
         <symbol id="i-sun3" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></symbol>
       </svg>
       <div class="bar"><i></i>MacBook Pro<svg><use href="#i-more"/></svg></div>
-      <div class="seg"><span>Указка</span><span>Тачпад</span></div>
+      <div class="seg"><span>Pointer</span><span>Trackpad</span></div>
       <div class="main">
-        <div class="pad"><div class="dot"></div><small>Тап — клик. Держите — перетаскивание</small></div>
-        <div class="strip"><svg><use href="#i-up"/></svg><div><svg><use href="#i-updown"/></svg>Скролл</div><svg><use href="#i-down"/></svg></div>
+        <div class="pad"><div class="dot"></div><small>Tap to click. Hold to drag</small></div>
+        <div class="strip"><svg><use href="#i-up"/></svg><div><svg><use href="#i-updown"/></svg>Scroll</div><svg><use href="#i-down"/></svg></div>
       </div>
       <div class="keys">
-        <span><svg><use href="#i-click"/></svg>Правый клик</span>
-        <span><svg><use href="#i-scope"/></svg>Центр</span>
-        <span><svg><use href="#i-pause"/></svg>Пауза</span>
+        <span><svg><use href="#i-click"/></svg>Right click</span>
+        <span><svg><use href="#i-scope"/></svg>Center</span>
+        <span><svg><use href="#i-pause"/></svg>Pause</span>
       </div>
       <div class="media">
-        <header><svg><use href="#i-note"/></svg>Звук, музыка и яркость<svg><use href="#i-down"/></svg></header>
+        <header><svg><use href="#i-note"/></svg>Sound, music and brightness<svg><use href="#i-down"/></svg></header>
         <div class="keys">
-          <span><svg><use href="#i-prev"/></svg>Назад</span>
-          <span><svg><use href="#i-playpause"/></svg>Пауза / пуск</span>
-          <span><svg><use href="#i-next"/></svg>Далее</span>
+          <span><svg><use href="#i-prev"/></svg>Previous</span>
+          <span><svg><use href="#i-playpause"/></svg>Play / pause</span>
+          <span><svg><use href="#i-next"/></svg>Next</span>
         </div>
         <div class="keys">
-          <span><svg><use href="#i-mute"/></svg>Без звука</span>
-          <span><svg><use href="#i-vol1"/></svg>Тише</span>
-          <span><svg><use href="#i-vol3"/></svg>Громче</span>
+          <span><svg><use href="#i-mute"/></svg>Mute</span>
+          <span><svg><use href="#i-vol1"/></svg>Quieter</span>
+          <span><svg><use href="#i-vol3"/></svg>Louder</span>
         </div>
         <div class="keys two">
-          <span><svg><use href="#i-sun1"/></svg>Темнее</span>
-          <span><svg><use href="#i-sun3"/></svg>Ярче</span>
+          <span><svg><use href="#i-sun1"/></svg>Dimmer</span>
+          <span><svg><use href="#i-sun3"/></svg>Brighter</span>
         </div>
       </div>
     </div>
   </div>
 
   <section id="how">
-    <h2>Три шага, и всё</h2>
-    <p class="sub">Один раз. Потом iPhone находит Mac сам, как наушники.</p>
+    <h2>Three steps, done</h2>
+    <p class="sub">Once. After that your iPhone finds your Mac on its own, like AirPods.</p>
     <div class="grid">
-      <div class="card"><div class="num">1</div><h3>Поставьте PointerPad на Mac</h3><p>Маленькое приложение в строке меню. Разрешите Bluetooth и «Универсальный доступ» — без него macOS не даёт двигать курсор.</p></div>
-      <div class="card"><div class="num">2</div><h3>Откройте PointerPad на iPhone</h3><p>Выберите свой Mac из списка рядом. Ни IP-адресов, ни одной Wi-Fi-сети, ни настроек файрвола.</p></div>
-      <div class="card"><div class="num">3</div><h3>Сверьте код</h3><p>Одинаковые шесть цифр на iPhone и на Mac — нажмите «Разрешить». Чужой телефон так не подключится.</p></div>
+      <div class="card"><div class="num">1</div><h3>Install PointerPad on your Mac</h3><p>A tiny menu bar app. Allow Bluetooth and Accessibility — macOS won’t let any app move the cursor without it.</p></div>
+      <div class="card"><div class="num">2</div><h3>Open PointerPad on your iPhone</h3><p>Pick your Mac from the list of ones nearby. No IP addresses, no shared Wi-Fi, no firewall settings.</p></div>
+      <div class="card"><div class="num">3</div><h3>Compare the code</h3><p>The same six digits on your iPhone and your Mac — click Allow. Someone else’s phone can’t sneak in this way.</p></div>
     </div>
   </section>
 
   <section>
-    <h2>Что умеет</h2>
-    <p class="sub">Два режима и пульт — переключаются одним касанием, курсор при этом не прыгает.</p>
+    <h2>What it does</h2>
+    <p class="sub">Two modes and a remote, one tap apart — and the cursor never jumps when you switch.</p>
     <div class="grid">
-      <div class="card"><h3>Указка</h3><p>Держите iPhone как пульт: куда смотрит верх телефона, туда идёт курсор. Тап — клик, удержание — перетаскивание. Трекпад Mac при этом продолжает работать.</p></div>
-      <div class="card"><h3>Тачпад</h3><p>Телефон на столе или на коленях. Один палец — курсор, два — скролл и правый клик, подержать и вести — перетащить окно.</p></div>
-      <div class="card"><h3>Музыка, звук, яркость</h3><p>Пауза, следующий трек, громкость и яркость экрана — со своими системными индикаторами на Mac.</p></div>
+      <div class="card"><h3>Pointer</h3><p>Hold your iPhone like a remote: wherever its top edge points, the cursor goes. Tap to click, hold to drag. Your Mac’s own trackpad keeps working too.</p></div>
+      <div class="card"><h3>Trackpad</h3><p>Phone on the desk or your lap. One finger moves the cursor, two scroll and right-click, hold and slide to drag a window.</p></div>
+      <div class="card"><h3>Music, sound, brightness</h3><p>Pause, next track, volume and screen brightness — with the Mac’s own on-screen indicators.</p></div>
     </div>
   </section>
 
   <section id="why">
-    <h2>Почему не очередной «remote mouse»</h2>
-    <p class="sub">Мы прочитали сотни отзывов о таких приложениях. Больше всего злят одни и те же вещи.</p>
+    <h2>Why not just another “remote mouse”</h2>
+    <p class="sub">We read hundreds of reviews of apps like this. The same things make people angry again and again.</p>
     <table class="compare">
-      <thead><tr><th>Что раздражает</th><th>Как обычно</th><th>В PointerPad</th></tr></thead>
+      <thead><tr><th>What annoys people</th><th>The usual</th><th>PointerPad</th></tr></thead>
       <tbody>
-        <tr><td>Подключение</td><td>Сервер на компьютере, одна Wi-Fi-сеть, порты в файрволе</td><td>Напрямую по Bluetooth, Mac находится сам</td></tr>
-        <tr><td>Цена</td><td>Подписка, реклама, Bluetooth «в Pro-версии»</td><td>Без подписки и рекламы, Bluetooth — основа, а не опция</td></tr>
-        <tr><td>Доверие</td><td>Непонятная программа с доступом ко всему компьютеру</td><td>Приложение подписано и нотаризовано Apple; каждая команда с iPhone подписана ключом</td></tr>
-        <tr><td>Данные</td><td>Аккаунты, аналитика, облако</td><td>Ничего не уходит в интернет. Совсем.</td></tr>
+        <tr><td>Connecting</td><td>A server on the computer, the same Wi-Fi, ports in the firewall</td><td>Straight over Bluetooth, the Mac shows up by itself</td></tr>
+        <tr><td>Price</td><td>Subscriptions, ads, Bluetooth “in Pro”</td><td>No subscription, no ads; Bluetooth is the core, not an upsell</td></tr>
+        <tr><td>Trust</td><td>A mystery program with access to your whole computer</td><td>Signed and notarized by Apple; every command from the iPhone is signed with a key</td></tr>
+        <tr><td>Data</td><td>Accounts, analytics, the cloud</td><td>Nothing goes to the internet. At all.</td></tr>
       </tbody>
     </table>
   </section>
 
   <section id="faq">
-    <h2>Вопросы</h2>
-    <details><summary>Зачем ставить что-то на Mac?</summary><p>iPhone не может сам двигать курсор на другом компьютере. На Mac работает маленький помощник в строке меню: он принимает команды по Bluetooth и передаёт их системе. В Mac App Store его быть не может — Apple не пускает туда программы, которые управляют курсором, поэтому он скачивается здесь — подписанный и нотаризованный Apple.</p></details>
-    <details><summary>Нужен ли интернет или одна Wi-Fi-сеть?</summary><p>Нет. Только Bluetooth на обоих устройствах. Работает и без интернета вовсе.</p></details>
-    <details><summary>На каком расстоянии работает?</summary><p>В пределах комнаты: Bluetooth уверенно держит около 10 метров.</p></details>
-    <details><summary>А если рядом кто-то с таким же приложением?</summary><p>Без вашего «Разрешить» на Mac и совпадения кода ничего не произойдёт. После сопряжения каждая команда подписана ключом, который знают только ваши iPhone и Mac.</p></details>
-    <details><summary>Какие разрешения нужны и зачем?</summary><p>На Mac — Bluetooth (связь с iPhone) и «Универсальный доступ» (двигать курсор и нажимать клавиши). На iPhone — Bluetooth и датчики движения (режим указки).</p></details>
-    <details><summary>Windows, iPad, Android?</summary><p>Пока только iPhone и Mac — зато сделано как следует.</p></details>
+    <h2>Questions</h2>
+    <details><summary>Why do I need to install something on my Mac?</summary><p>An iPhone can’t move the cursor on another computer by itself. A tiny helper in the Mac’s menu bar takes commands over Bluetooth and passes them to macOS. It can’t be on the Mac App Store — Apple doesn’t allow apps that control the cursor there — so you download it here, signed and notarized by Apple.</p></details>
+    <details><summary>Do I need the internet or the same Wi-Fi?</summary><p>No. Just Bluetooth on both devices. It works with no internet at all.</p></details>
+    <details><summary>How far does it reach?</summary><p>Across a room: Bluetooth holds steady at about 10 meters (30 feet).</p></details>
+    <details><summary>What if someone nearby has the same app?</summary><p>Nothing happens unless you click Allow on your Mac and the codes match. After pairing every command is signed with a key only your iPhone and your Mac know.</p></details>
+    <details><summary>Which permissions does it need, and why?</summary><p>On the Mac: Bluetooth (to talk to the iPhone) and Accessibility (to move the cursor and press keys). On the iPhone: Bluetooth and Motion (for pointer mode).</p></details>
+    <details><summary>Windows, iPad, Android?</summary><p>Just iPhone and Mac for now — done properly.</p></details>
   </section>
 
   <footer>
     <span>© 2026 PointerPad</span>
-    <a href="privacy.html">Конфиденциальность</a>
-    <a href="https://github.com/shaadow0king/pointerpad/issues">Поддержка</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="https://github.com/shaadow0king/pointerpad/issues">Support</a>
   </footer>
 </div>
 </body>
